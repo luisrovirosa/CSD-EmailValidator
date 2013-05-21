@@ -32,6 +32,20 @@ public class ListInAnyOrderTest {
 		assertThat(lista1, not(stringListInAnyOrder(lista2)));
 	}
 
+	@Test
+	public void list1HaveIsContainedInList2ButNotOtherwise() {
+		List<String> lista1 = Arrays.asList("elem1");
+		List<String> lista2 = Arrays.asList("elem1", "elem2");
+		assertThat(lista1, not(stringListInAnyOrder(lista2)));
+	}
+
+	@Test
+	public void list2HaveIsContainedInList1ButNotOtherwise() {
+		List<String> lista1 = Arrays.asList("elem1", "elem2");
+		List<String> lista2 = Arrays.asList("elem1");
+		assertThat(lista1, not(stringListInAnyOrder(lista2)));
+	}
+
 	// @Test
 	// public void sameListUnordered() {
 	// List<String> lista1 = Arrays.asList("elm2", "elm1");
