@@ -18,4 +18,10 @@ public class MailListTest {
 		assertTrue(list.getMails("mi@email.com").contains("mi@email.com"));
 	}
 
+	@Test
+	public void recibeEmailInvalidoDevuelveListaVacia() {
+		MailList list = new MailList();
+		assertEquals(0, list.getMails("mi.email.com").size());
+	}
+
 }
