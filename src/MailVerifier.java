@@ -1,14 +1,12 @@
 public class MailVerifier {
 
 	public boolean isValidEmailAddress(String email) {
-		return tieneSoloUnaArroba(email)
-				&& noTieneComasOEspacios(email)
+		return tieneSoloUnaArroba(email) && noTieneComasOEspacios(email)
 				&& tienePuntoDespuesArroba(email);
 	}
 
 	private boolean tienePuntoDespuesArroba(String email) {
-		return email.contains(".") && -1 != email.indexOf(".",
-				email.indexOf("@"));
+		return -1 != email.indexOf(".", email.indexOf("@"));
 	}
 
 	private boolean noTieneComasOEspacios(String email) {
