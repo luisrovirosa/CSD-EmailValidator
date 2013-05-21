@@ -1,5 +1,7 @@
 package com.csd.mail;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.hamcrest.Description;
@@ -23,7 +25,14 @@ public class StringListInAnyOrder extends TypeSafeMatcher<List<String>> {
 
 	@Override
 	public boolean matchesSafely(List<String> list) {
-		return (list.containsAll(expected) && expected.containsAll(list));
+
+		List<String> listOrdered = new ArrayList<String>(list);
+		Collections.sort(listOrdered);
+
+		List<String> expectedListOrdered = new ArrayList<String>(expected);
+		Collections.sort(expectedListOrdered);
+
+		return (listOrdered.equals(expectedListOrdered));
 	}
 
 	@Factory

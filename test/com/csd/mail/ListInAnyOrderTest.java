@@ -46,11 +46,17 @@ public class ListInAnyOrderTest {
 		assertThat(lista1, not(stringListInAnyOrder(lista2)));
 	}
 
-	// @Test
-	// public void sameListUnordered() {
-	// List<String> lista1 = Arrays.asList("elm2", "elm1");
-	// List<String> lista2 = Arrays.asList("elm1", "elm2");
-	// assertThat(lista1, stringListInAnyOrder(lista2));
-	// }
+	@Test
+	public void sameListUnordered() {
+		List<String> lista1 = Arrays.asList("elm2", "elm1");
+		List<String> lista2 = Arrays.asList("elm1", "elm2");
+		assertThat(lista1, stringListInAnyOrder(lista2));
+	}
 
+	@Test
+	public void listWithElementsDuplicated() {
+		List<String> lista1 = Arrays.asList("elm1", "elm2", "elm2");
+		List<String> lista2 = Arrays.asList("elm1", "elm1", "elm2");
+		assertThat(lista1, not(stringListInAnyOrder(lista2)));
+	}
 }
