@@ -13,4 +13,12 @@ public class MailVerifiertest {
 		assertFalse(email.isValidEmailAddress("correo@correo@es"));
 	}
 
+	@Test
+	public void noTieneEspaciosNiComas() {
+		MailVerifier verifier = new MailVerifier();
+		assertFalse(verifier.isValidEmailAddress("correo@coreo es"));
+		assertFalse(verifier.isValidEmailAddress("correo@coreo,es"));
+		assertFalse(verifier.isValidEmailAddress("co rr,eo@coreo,es"));
+	}
+
 }

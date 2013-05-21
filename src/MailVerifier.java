@@ -2,7 +2,8 @@ public class MailVerifier {
 
 	public boolean isValidEmailAddress(String email) {
 		return email.contains("@")
-				&& email.indexOf("@") == email.lastIndexOf("@");
+				&& email.indexOf("@") == email.lastIndexOf("@")
+				&& !email.contains(" ") && !email.contains(",");
 	}
 
 }
