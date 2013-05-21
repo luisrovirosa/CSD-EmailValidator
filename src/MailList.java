@@ -9,7 +9,8 @@ public class MailList {
 			MailVerifier verifier = new MailVerifier();
 			String[] listaemails = splitEmails(emails);
 			for (String email : listaemails) {
-				if (verifier.isValidEmailAddress(email)) {
+				if (verifier.isValidEmailAddress(email)
+						&& !lista.contains(email)) {
 					lista.add(email);
 				}
 			}

@@ -30,4 +30,10 @@ public class MailListTest {
 		assertEquals(2, list.getMails("mi@email.com,mi.otro@email.com").size());
 		assertEquals(2, list.getMails("mi@email.com, mi.otro@email.com").size());
 	}
+
+	@Test
+	public void recibeDosEmailsIgualesDevuelveListaConUnEmails() {
+		MailList list = new MailList();
+		assertEquals(1, list.getMails("mi@email.com,mi@email.com").size());
+	}
 }
