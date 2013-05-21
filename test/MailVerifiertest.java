@@ -21,4 +21,13 @@ public class MailVerifiertest {
 		assertFalse(verifier.isValidEmailAddress("co rr,eo@coreo,es"));
 	}
 
+	@Test
+	public void tienePuntoDespuesArroba() {
+		MailVerifier verifier = new MailVerifier();
+		assertTrue(verifier.isValidEmailAddress("correo@coreo.es"));
+		assertFalse(verifier.isValidEmailAddress("correo@coreoes"));
+		assertFalse(verifier.isValidEmailAddress("cor.reo@coreoes"));
+		assertTrue(verifier.isValidEmailAddress("cor.reo@coreo.es"));
+	}
+
 }
