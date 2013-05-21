@@ -24,4 +24,10 @@ public class MailListTest {
 		assertEquals(0, list.getMails("mi.email.com").size());
 	}
 
+	@Test
+	public void recibeDosEmailsValidosDevuelveListaConDosEmails() {
+		MailList list = new MailList();
+		assertEquals(2, list.getMails("mi@email.com,mi.otro@email.com").size());
+		assertEquals(2, list.getMails("mi@email.com, mi.otro@email.com").size());
+	}
 }
