@@ -4,18 +4,17 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 public class MailVerifiertest {
+	MailVerifier verifier = new MailVerifier();
 
 	@Test
 	public void solaUnaArroba() {
-		MailVerifier email = new MailVerifier();
-		assertTrue(email.isValidEmailAddress("correo@correo.es"));
-		assertFalse(email.isValidEmailAddress("correocorreo.es"));
-		assertFalse(email.isValidEmailAddress("correo@correo@es"));
+		assertTrue(verifier.isValidEmailAddress("correo@correo.es"));
+		assertFalse(verifier.isValidEmailAddress("correocorreo.es"));
+		assertFalse(verifier.isValidEmailAddress("correo@correo@es"));
 	}
 
 	@Test
 	public void noTieneEspaciosNiComas() {
-		MailVerifier verifier = new MailVerifier();
 		assertFalse(verifier.isValidEmailAddress("correo@coreo es"));
 		assertFalse(verifier.isValidEmailAddress("correo@coreo,es"));
 		assertFalse(verifier.isValidEmailAddress("co rr,eo@coreo,es"));
@@ -23,7 +22,6 @@ public class MailVerifiertest {
 
 	@Test
 	public void tienePuntoDespuesArroba() {
-		MailVerifier verifier = new MailVerifier();
 		assertTrue(verifier.isValidEmailAddress("correo@coreo.es"));
 		assertFalse(verifier.isValidEmailAddress("correo@coreoes"));
 		assertFalse(verifier.isValidEmailAddress("cor.reo@coreoes"));
